@@ -1,0 +1,22 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: postgres-pod 
+  labels: 
+    name: postgres-pod
+    app: hasura 
+spec: 
+  containers:
+    - name: postgres
+      image: postgres:12 
+      volumeMounts:
+        - name: db-data
+          mountPath: /var/lib/postgresql/data
+      env:
+        - name: POSTGRES_PASSWORD 
+          value: postgrespassword
+      ports:
+        - containerPort: 5432
+  volumes: 
+    - name: db-data
+      emptyDir: {}
