@@ -4,12 +4,12 @@ metadata:
   name: pod-reader
   namespace: default
 rules:
-- apiGroups: [ "" ]
-  resources: [ "pods", "services"]
-  verbs: [ "get", "list", "watch"]
-- apiGroups: [ "extensions" ]
-  resources: [ "deployments" ]
-  verbs: [ "get", "list", "watch"]
+  - apiGroups: ['']
+    resources: ['pods', 'services']
+    verbs: ['get', 'list', 'watch', 'patch']
+  - apiGroups: ['extensions']
+    resources: ['deployments']
+    verbs: ['get', 'list', 'watch', 'patch']
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -21,6 +21,6 @@ roleRef:
   kind: Role
   name: pod-reader
 subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: default
+  - kind: ServiceAccount
+    name: default
+    namespace: default
