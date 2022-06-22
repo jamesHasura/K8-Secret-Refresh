@@ -4,11 +4,9 @@ metadata:
   name: db-service
   labels:
     name: db-service
-    app: hasura 
 spec:
   ports:
     - port: 5432
       targetPort: 5432
   selector:
     name: postgres-pod
-    app: hasura

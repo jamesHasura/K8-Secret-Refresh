@@ -3,6 +3,5 @@ kind: Secret
 metadata:
   name: jpmc-secret
 type: Opaque
-stringData:
-  username: jpmc
-  password: hasura
+data:
+  token: jpmc
