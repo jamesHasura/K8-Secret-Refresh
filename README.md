@@ -28,6 +28,7 @@ Edit the ENV variables in the K8s deployment file located at /k8s/Deployment. Th
 
 1. HASURA_GRAPHQL_DATABASE_URL: postgres DB connection string
    **`Example: HASURA_GRAPHQL_DATABASE_URL:postgres://postgres:postgrespassword@10.100.140.14:5432/postgres`**
+
 2. (OPTIONAL) JWT_SERVICE_TOKEN: this is the JWT env variable that will be refreshed. The name can changed.
 
 ### Step 3: Run the K8s deployment files
