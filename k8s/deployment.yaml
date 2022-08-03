@@ -27,7 +27,7 @@ spec:
       volumes:
         - name: secret-vol
           secret:
-            secretName: jpmc-secret
+            secretName: my_secret
       containers:
         - image: hasura/graphql-engine:v2.7.0
           imagePullPolicy: IfNotPresent
@@ -44,14 +44,14 @@ spec:
             - name: JWT_SERVICE_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: jpmc-secret
+                  name: my_secret
                   key: token
           ports:
             - containerPort: 8080
               protocol: TCP
           volumeMounts:
             - name: secret-vol
-              mountPath: '/etc/jpmc_secret'
+              mountPath: '/etc/my_secret'
           resources: {}
 
 ---
@@ -66,11 +66,11 @@ spec:
   volumes:
     - name: secret-vol
       secret:
-        secretName: jpmc-secret
+        secretName: my_secret
   containers:
     - name: secret-refresh-pod
       image: secret-refresh-pod
       imagePullPolicy: Never
       volumeMounts:
         - name: secret-vol
-          mountPath: '/etc/jpmc_secret'
+          mountPath: '/etc/my_secret'
