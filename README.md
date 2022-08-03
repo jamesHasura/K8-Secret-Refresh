@@ -3,8 +3,8 @@
 ## Description
 
 This project creates a hasura zero downtime deployment for scenarios when there
-is a rotating credential that needs to be loaded into hasura as an environment
-variable on startup.
+is a rotating credential that expires after a certain duration and needs to be refreshed & reloaded 
+into hasura as an environment variable.
 
 ## How to Run?
 
